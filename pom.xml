@@ -2,6 +2,9 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>us.careydevelopment.util.bot</groupId>
     <artifactId>web-crawler</artifactId>
+    <name>Web Crawler</name>
+    <description>Convenience methods for retrieving and parsing HTML documents</description>
+    <url>https://github.com/careydevelopment/web-crawler</url>
     <version>1.0.0-RELEASE</version>
     
     <dependencies>
