@@ -48,18 +48,22 @@ public class ConnectionHelper {
         } 
     }
         
+    
     public ConnectionHelper(String url) {
         this.url = url;
     }
         
+    
     public URLConnection getBasicConnection() throws MalformedURLException, IOException {
         URL urlObj = new URL(url);
         URLConnection conn = urlObj.openConnection();
+        conn.setConnectTimeout(15 * 1000);
         conn.setRequestProperty("User-Agent", WebConstants.USER_AGENT);
 
         return conn;
     }
-        
+    
+    
     public HttpsURLConnection getSecureConnection() throws MalformedURLException, IOException {
         URL urlObj = new URL(url);
         HttpsURLConnection con = (HttpsURLConnection)urlObj.openConnection();
@@ -67,3 +71,4 @@ public class ConnectionHelper {
         return con;
     }
 }
+ 
