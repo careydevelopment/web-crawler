@@ -28,24 +28,16 @@ public class WebPageReader {
     
     
     public static void main(String... args) {
-        String url = "https://www.reddit.com/r/popular.json";
+        String url = "https://www.insider.com/billy-crystal-weed-gummies-stoned-during-mri-taco-bell-2021-8";
         WebPageReader wpr = new WebPageReader(url);
                 
         try {
             String contents = wpr.getFullContents();
-            
-            ObjectMapper mapper = new ObjectMapper();
-            JsonNode jsonNode = mapper.readTree(contents);
-            JsonNode dataNode = jsonNode.get("data");
-            JsonNode childrenNode = dataNode.get("children");
-            //System.err.println(childrenNode);
-            childrenNode.elements().forEachRemaining(el ->{
-                Boolean isVideo = el.get("data").get("is_video").asBoolean();
-                if (isVideo) {
-                    System.err.println(el.get("data").get("permalink"));
-                }
-            });
-            //System.err.println(firstNode);
+            //System.err.println(contents);
+            MetaParser metaParser = new MetaParser(contents);
+            String meta = metaParser.getMetaByProperty("og:image");
+            String thumbnail = WebParser.getAttributeFromLine(meta, "content");
+            System.err.println(thumbnail);
         } catch (Exception e) {
             e.printStackTrace();
         }
