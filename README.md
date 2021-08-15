@@ -3,7 +3,7 @@
 # Carey Development Web Crawler 
 ![](https://img.shields.io/badge/jdk-11-blue.svg) ![license](https://img.shields.io/badge/license-MIT-blue.svg) 
 ![](https://img.shields.io/badge/maven-3.6.3-blue.svg)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/us.careydevelopment.util.bot/web-crawler/badge.svg)](https://search.maven.org/artifact/us.careydevelopment.util.bot/web-crawler/1.0.0-RELEASE/jar)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/us.careydevelopment.util.bot/web-crawler/badge.svg)](https://search.maven.org/artifact/us.careydevelopment.util.bot/web-crawler/1.2.0-RELEASE/jar)
 
 
 
@@ -18,7 +18,7 @@ You can pull it from the central Maven repositories:
  <dependency>
     <groupId>us.careydevelopment.util.bot</groupId>
     <artifactId>web-crawler</artifactId>
-    <version>1.0.0-RELEASE</version>
+    <version>1.2.0-RELEASE</version>
  </dependency>
 ```
 

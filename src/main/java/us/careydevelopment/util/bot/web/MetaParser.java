@@ -13,6 +13,8 @@ public class MetaParser {
 
     private static final Logger LOG = LoggerFactory.getLogger(HtmlReader.class);
     
+    private static final String META_SEARCH = "<meta";
+    
     private String contents;
     private List<String> metas = new ArrayList<>();
     
@@ -24,7 +26,7 @@ public class MetaParser {
     
     private void findMetas() {
         int currentIndex = 0;
-        int metaLoc = contents.indexOf("<meta", currentIndex);
+        int metaLoc = contents.indexOf(META_SEARCH, currentIndex);
         
         while (metaLoc > -1) {
             int endingPoint = findMetaEnd(metaLoc);
@@ -32,10 +34,8 @@ public class MetaParser {
             metas.add(meta);
             
             currentIndex = endingPoint + 1;
-            metaLoc = contents.indexOf("<meta", currentIndex);
+            metaLoc = contents.indexOf(META_SEARCH, currentIndex);
         }
-        
-        System.err.println(metas);        
     }
     
     

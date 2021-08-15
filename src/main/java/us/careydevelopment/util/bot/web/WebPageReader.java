@@ -37,7 +37,6 @@ public class WebPageReader {
             MetaParser metaParser = new MetaParser(contents);
             String meta = metaParser.getMetaByProperty("og:image");
             String thumbnail = WebParser.getAttributeFromLine(meta, "content");
-            System.err.println(thumbnail);
         } catch (Exception e) {
             e.printStackTrace();
         }
