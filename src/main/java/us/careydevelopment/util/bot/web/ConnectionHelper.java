@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.security.SecureRandom;
+import java.util.Map;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
@@ -59,7 +60,7 @@ public class ConnectionHelper {
         URLConnection conn = urlObj.openConnection();
         conn.setConnectTimeout(15 * 1000);
         conn.setRequestProperty("User-Agent", WebConstants.USER_AGENT);
-
+        
         return conn;
     }
     
@@ -68,6 +69,21 @@ public class ConnectionHelper {
         URL urlObj = new URL(url);
         HttpsURLConnection con = (HttpsURLConnection)urlObj.openConnection();
         con.setRequestProperty("User-Agent", WebConstants.USER_AGENT);
+        return con;
+    }
+    
+    
+    public HttpsURLConnection getSecureConnection(Map<String,String> headers) throws MalformedURLException, IOException {
+        HttpsURLConnection con = getSecureConnection();
+        
+        if (headers != null) {
+            headers.keySet().forEach(key -> {
+                String val = headers.get(key);
+                
+                con.setRequestProperty(key, val);
+            });
+        }
+        
         return con;
     }
 }
